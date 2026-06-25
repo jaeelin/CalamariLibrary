@@ -27,19 +27,18 @@ end
 
 
 function Controls:Init(Context: {})
-	ApplyState(Context.Maximize, false)
+	ApplyState(Context, Context.Maximize, false)
 
 	local controls_list = {Context.Exit, Context.Minimize}
 
 	for _, button in next, controls_list do
-		local buttonName = button.Name
 		local enabled = true
 
-		if Context.Settings.DisabledWindowControls and table.find(Context.Settings.DisabledWindowControls, buttonName) then
+		if Context.Settings.DisabledWindowControls and table.find(Context.Settings.DisabledWindowControls, button.Name) then
 			enabled = false
 		end
 
-		ApplyState(button, enabled)
+		ApplyState(Context, button, enabled)
 	end
 end
 
