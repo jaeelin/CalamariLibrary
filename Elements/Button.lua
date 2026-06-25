@@ -11,7 +11,7 @@ function Button:Create(Context: {}, Settings: {}, Flag: string)
 	button.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	button.BorderSizePixel = 0
 	button.Size = UDim2.new(1, 0, 0, 38)
-	button.Parent = Context.section
+	button.Parent = Context.Section
 
 	local button_interact = Instance.new("TextButton")
 	button_interact.Name = "ButtonInteract"
