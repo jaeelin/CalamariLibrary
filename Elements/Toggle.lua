@@ -148,7 +148,7 @@ function Toggle:Create(Context: {}, Settings: {}, Flag: string)
 	end
 
 	if Flag then
-		Calamari.Options[Flag] = ToggleFunctions
+		Context.Options[Flag] = ToggleFunctions
 	end
 	
 	NewState(Enabled)
