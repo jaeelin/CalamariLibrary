@@ -1,10 +1,10 @@
 local InputActionSystem = {}
 
-local function CreateAction(InputContext: Instance, Name: string, KeyCode: Enum, ActionType: Enum)
+local function CreateAction(Context: Instance, Name: string, KeyCode: Enum, ActionType: Enum)
 	local action = Instance.new("InputAction")
 	action.Name = Name
 	action.Type = ActionType
-	action.Parent = InputContext
+	action.Parent = Context
 
 	local binding = Instance.new("InputBinding")
 	binding.KeyCode = KeyCode
@@ -32,10 +32,18 @@ function InputActionSystem:Setup(Context: {})
 		Enum.InputActionType.ViewportPosition
 	)
 	
+	local slider_action = CreateAction(
+		input_context,
+		"SliderAction",
+		Enum.KeyCode.MousePosition,
+		Enum.InputActionType.ViewportPosition
+	)
+	
 	return {
 		InputContext = input_context,
 		UIToggleAction = ui_toggle_action,
-		MousePosition = mouse_position
+		MousePosition = mouse_position,
+		SliderAction = slider_action
 	}
 end
 
