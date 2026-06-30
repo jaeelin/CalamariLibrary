@@ -272,7 +272,7 @@ function Slider:Create(Context: {}, Settings: {}, Flag: string)
 	end
 
 	if Flag then
-		Calamari.Options[Flag] = SliderFunctions
+		Context.Options[Flag] = SliderFunctions
 	end
 
 	return SliderFunctions
